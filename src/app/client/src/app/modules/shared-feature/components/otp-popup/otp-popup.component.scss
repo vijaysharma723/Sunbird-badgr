@@ -1,0 +1,20 @@
+@import "variables";
+@import 'mixins/mixins';
+@import 'pages/sign_in_up';
+
+.orange-border {
+    border-color: var(--red-100) !important;
+}
+.blue.text {
+    color: var(--primary-color);
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}  
+.cursor-pointerText {
+    cursor: text;
+    pointer-events: none !important;
+}

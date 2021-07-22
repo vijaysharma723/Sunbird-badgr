@@ -1,0 +1,18 @@
+<sui-modal [mustScroll]="true" [isClosable]="true" [transitionDuration]="0" [size]="'small'" class="sb-modal"
+    appBodyScroll (dismissed)="closeLoginModal()" #modal *ngIf="showLoginModal">
+    <div class="sb-modal-header">
+        {{generaliseLabelService?.frmelmnts?.lbl?.accessCourse}}
+    </div>
+    <div class="sb-modal-content sb-join-modal-content">
+        <div class="fsmall px-0 py-8">
+            {{generaliseLabelService?.frmelmnts?.lbl?.accessToLogin}}
+        </div>
+    </div>
+    <div class="sb-modal-actions">
+        <a appTelemetryInteract [telemetryInteractObject]="telemetryInteractObject"
+            [telemetryInteractEdata]="signInInteractEdata" (click)="setTelemetryData(); setUrlToCourse();"
+            class="sb-btn sb-btn-normal sb-btn-primary">
+            {{resourceService.frmelmnts?.btn?.login}}
+        </a>
+    </div>
+</sui-modal>
