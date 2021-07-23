@@ -28,7 +28,7 @@
 
   <div class="textbook-container cc-player__content-header relative9">
     <div class="ui container">
-      <div class="textbook py-16 sb-g cc-player">
+      <div *ngIf = "courseDetails?.contentType != null" class="textbook py-16 sb-g cc-player">
         <div class="sb-g-col-xs-12 sb-g-col-md-9 sb-g-col-lg-9 sb-g-col-xxxl-12">
           <!-- Textbook details -->
           <div class="textbook__details d-flex flex-ai-center">

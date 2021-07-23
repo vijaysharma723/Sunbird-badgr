@@ -193,7 +193,7 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
     } else if (url.indexOf('play') >= 0) {
       this.hrefPath = '/resources' + url;
     } else {
-      this.hrefPath = '/resources';
+      this.hrefPath = '/certs/configure/certificate?type=add';
     }
   }
   getTelemetryContext() {
