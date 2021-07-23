@@ -1,8 +1,8 @@
 <div [ngClass]="!layoutConfiguration ? 'footer-fix' : 'new-footer'">
   <app-desktop-app-update *appDesktopOnly></app-desktop-app-update>
   <div [ngClass]="{'loggedInUser': userService.loggedIn, 'guestUser': !userService.loggedIn}">
-    <app-popup #frameWorkPopUp *ngIf="showFrameWorkPopUp" [buttonLabel]="resourceService.frmelmnts.btn.submit"
-      (submit)="updateFrameWork($event)"></app-popup>
+    <!-- <app-popup #frameWorkPopUp *ngIf="showFrameWorkPopUp" [buttonLabel]="resourceService.frmelmnts.btn.submit"
+      (submit)="updateFrameWork($event)"></app-popup> -->
     <!-- <app-tnc-popup (close)="onAcceptTnc()" #termsAndCondPopUp *ngIf="showTermsAndCondPopUp">
     </app-tnc-popup> -->
     <div class="mb-16" *ngIf="showGlobalConsentPopUpSection">

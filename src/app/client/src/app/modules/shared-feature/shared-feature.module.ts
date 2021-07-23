@@ -3,8 +3,7 @@ import { SharedModule } from '@sunbird/shared';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  ProfileFrameworkPopupComponent,
-  OtpPopupComponent, BatchInfoComponent, SsoMergeConfirmationComponent,
+  BatchInfoComponent,
   ConfirmationPopupComponent, CertPreviewPopupComponent, ContentPlayerComponent, CollectionPlayerComponent
 } from './components';
 import { SlickModule } from 'ngx-slick';
@@ -47,14 +46,12 @@ export const csUserServiceFactory = (csLibInitializerService: CsLibInitializerSe
 
   ],
   providers: [{ provide: 'CS_USER_SERVICE', useFactory: csUserServiceFactory, deps: [CsLibInitializerService] }],
-  declarations: [ProfileFrameworkPopupComponent,
-    OtpPopupComponent, BatchInfoComponent, SsoMergeConfirmationComponent,
+  declarations: [BatchInfoComponent,
 
     ConfirmationPopupComponent, CertPreviewPopupComponent, ContentPlayerComponent, GlobalConsentPiiComponent,
     CollectionPlayerComponent
   ],
-  exports: [ProfileFrameworkPopupComponent,
-    OtpPopupComponent, BatchInfoComponent, SsoMergeConfirmationComponent,
+  exports: [BatchInfoComponent,
     ConfirmationPopupComponent, CertPreviewPopupComponent,
     ContentPlayerComponent, GlobalConsentPiiComponent, CollectionPlayerComponent]
 })

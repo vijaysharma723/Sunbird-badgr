@@ -43,8 +43,8 @@
 -->
           <!--/Hamburger Icon-->
           <!--Main Menu-->
-          <app-main-menu [layoutConfiguration]="layoutConfiguration" class="d-flex computer only ml-auto">
-          </app-main-menu>
+          <!-- <app-main-menu [layoutConfiguration]="layoutConfiguration" class="d-flex computer only ml-auto">
+          </app-main-menu> -->
           <!--/Main Menu-->
           <a class="profile-avtar p-0 mx-16" *ngIf="!isDesktopApp">
             <!-- <app-in-app-notification *ngIf="userService?.loggedIn" [layoutConfiguration]="layoutConfiguration"></app-in-app-notification> -->
@@ -66,8 +66,7 @@
     <!--Header White Section-->
     <!--Header Blue Section-->
     <!--Computer-->
-    <div class="sb-bg-color-primary p-8 px-16"
-      *ngIf="(showExploreHeader || userService.loggedIn && !showOfflineHelpCentre) && !router.url.includes('/contribute/program')">
+    <div class="sb-bg-color-primary p-8 px-16">
       <ng-container *ngIf="contributeTabActive else defaultView">
         <div class="ui container d-flex flex-ai-center mx-0 px-8">
           <span class="fs-1 sb-color-white py-8">{{resourceService?.frmelmnts?.lbl?.availableForContribution}}</span>
@@ -76,24 +75,24 @@
       <ng-template #defaultView>
         <div class="ui container d-flex flex-ai-center mx-0">
           <!--QR Button-->
-          <button class="ui button qr-code-btn d-flex flex-ai-center computer only mr-0" appTelemetryInteract
+          <!-- <button class="ui button qr-code-btn d-flex flex-ai-center computer only mr-0" appTelemetryInteract
             [telemetryInteractEdata]="enterDialCodeInteractEdata" (click)="showQrmodal = true;"
             title="{{resourceService.frmelmnts?.lbl?.enterQrCode}}" *ngIf="!hideHeader">
             <i class="icon-svg icon-svg--xxs icon-qrcode mr-4"><svg class="icon icon-svg--primary">
                 <use xlink:href="./assets/images/sprite.svg#qr-code-icon"></use>
               </svg></i>
             <span>{{resourceService.frmelmnts?.lbl?.enterQrCode}}</span>
-          </button>
+          </button> -->
           <!--/QR Button-->
           <!--Divider-->
           <span class="computer only search-qrcode-divider" *ngIf="!hideHeader"></span>
           <!--/Divider-->
           <!--Search Box-->
           <!--Logged in Pages-->
-          <app-search [layoutConfiguration]="layoutConfiguration" class="sb-search-box b-0"
+          <!-- <app-search [layoutConfiguration]="layoutConfiguration" class="sb-search-box b-0"
             *ngIf="!showExploreComponent && !hideHeader"
             [ngClass]="{'ml-auto mr-auto': searchBox.center, 'ml-0': !searchBox.center, 'small': searchBox.smallBox, 'large': searchBox.largeBox, 'medium': searchBox.mediumBox}">
-          </app-search>
+          </app-search> -->
           <!--/Logged in Pages-->
           <!--Explore Pages-->
           <div class="sb-search-box b-0" *ngIf="showExploreComponent && !hideHeader"
@@ -123,9 +122,9 @@
           </div>
           <!--/Load content -->
           <!--Language Dropdown-->
-          <app-language-dropdown [layoutConfiguration]="layoutConfiguration" [languageRange]='languages'
+          <!-- <app-language-dropdown [layoutConfiguration]="layoutConfiguration" [languageRange]='languages'
             class="computer only ml-auto" *ngIf="languages && showLanguageDropdown()">
-          </app-language-dropdown>
+          </app-language-dropdown> -->
           <!--/Language Dropdown-->
         </div>
       </ng-template>
@@ -236,9 +235,9 @@
       <div class="sbt-header-menu-bar sb-g">
         <div class="sb-g-col-xs-12 sb-g-col-md-3 sb-g-col-lg-3 sb-g-col-xxxl-4"></div>
         <div class="sb-g-col-xs-12 sb-g-col-md-9 sb-g-col-lg-9  sb-g-col-xxxl-12 sbt-header-menu-extension"></div>
-        <div class="sbt-header-menu">
+        <!-- <div class="sbt-header-menu">
           <app-main-menu [layoutConfiguration]="layoutConfiguration"></app-main-menu>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
