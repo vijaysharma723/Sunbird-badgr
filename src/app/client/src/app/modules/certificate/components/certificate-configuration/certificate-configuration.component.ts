@@ -23,9 +23,9 @@ export interface IConfigLabels {
   styleUrls: ['./certificate-configuration.component.scss']
 })
 export class CertificateConfigurationComponent implements OnInit, OnDestroy {
-  @ViewChild('selectCertType', {static: false}) selectCertType;
-  @ViewChild('selectRecipient', {static: false}) selectRecipient;
-  @ViewChild('templateChangeModal', {static: false}) templateChangeModal;
+  @ViewChild('selectCertType', { static: false }) selectCertType;
+  @ViewChild('selectRecipient', { static: false }) selectRecipient;
+  @ViewChild('templateChangeModal', { static: false }) templateChangeModal;
 
   public unsubscribe$ = new Subject<void>();
   showPreviewModal;
@@ -90,7 +90,7 @@ export class CertificateConfigurationComponent implements OnInit, OnDestroy {
         this.showAlertModal = true;
         this.currentState = 'certRules';
         this.showPreviewModal = false;
-        this.newTemplateIdentifier = _.get(res , 'identifier');
+        this.newTemplateIdentifier = _.get(res, 'identifier');
       }
     });
     this.navigationHelperService.setNavigationUrl();
@@ -170,19 +170,19 @@ export class CertificateConfigurationComponent implements OnInit, OnDestroy {
   getTemplateList() {
     const request = {
       'request': {
-          'filters': {
-              'certType': 'cert template',
-              'channel': this.userService.channel,
-              'mediaType': 'image'
-          },
-          'sort_by': {
-            'lastUpdatedOn': 'desc'
-          },
-          'fields': ['indentifier', 'name', 'code', 'certType', 'data', 'issuer', 'signatoryList', 'artifactUrl', 'primaryCategory', 'channel'],
-          'limit': 100
+        'filters': {
+          'certType': 'cert template',
+          'channel': this.userService.channel,
+          'mediaType': 'image'
+        },
+        'sort_by': {
+          'lastUpdatedOn': 'desc'
+        },
+        'fields': ['indentifier', 'name', 'code', 'certType', 'data', 'issuer', 'signatoryList', 'artifactUrl', 'primaryCategory', 'channel'],
+        'limit': 100
       }
-  };
-  return this.uploadCertificateService.getCertificates(request).pipe(
+    };
+    return this.uploadCertificateService.getCertificates(request).pipe(
       tap((certTemplateData) => {
         const templatList = _.get(certTemplateData, 'result.content');
         this.certTemplateList = templatList;
@@ -195,13 +195,13 @@ export class CertificateConfigurationComponent implements OnInit, OnDestroy {
         }
         const templateData = templatList.find(templat => tempIdToSelect && (templat.identifier === tempIdToSelect));
         if (templateData) {
-          _.remove(this.certTemplateList, (cert) => _.get(cert, 'identifier') === _.get(templateData , 'identifier'));
+          _.remove(this.certTemplateList, (cert) => _.get(cert, 'identifier') === _.get(templateData, 'identifier'));
           this.certTemplateList.unshift(templateData);
           this.selectedTemplate = templateData;
         }
       }), catchError(error => {
-          return of({});
-        })
+        return of({});
+      })
     );
   }
 
@@ -329,7 +329,7 @@ export class CertificateConfigurationComponent implements OnInit, OnDestroy {
   processCertificateDetails(certTemplateDetails) {
     const templateData = _.pick(_.get(certTemplateDetails, Object.keys(certTemplateDetails)), ['criteria', 'previewUrl', 'artifactUrl', 'identifier', 'data']);
     this.templateIdentifier = _.get(templateData, 'identifier');
-    this.selectedTemplate = {'name' : _.get(templateData, 'identifier'), 'previewUrl': _.get(templateData, 'previewUrl')};
+    this.selectedTemplate = { 'name': _.get(templateData, 'identifier'), 'previewUrl': _.get(templateData, 'previewUrl') };
     // if (!_.isEmpty(this.newTemplateIdentifier)) {
     //   this.templateIdentifier = this.newTemplateIdentifier;
     //   this.selectedTemplate = null;

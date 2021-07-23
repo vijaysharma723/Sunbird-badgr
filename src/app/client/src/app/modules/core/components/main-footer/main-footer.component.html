@@ -1,10 +1,10 @@
-<div *ngIf="showFooter">
+<!-- <div *ngIf="showFooter">
   <footer class="footer" #footerFix *ngIf="!layoutConfiguration" [ngClass]="{'player-fullscreen-footer': isFullScreenView}">
     <div  class="ui container">
       <div class="ui grid stackable">
-        <div class="four wide column footerMenu mr-auto">
-          <!-- default links if tenant settings is not available -->
-          <!-- <ul class="p-0 m-0" *ngIf="!(tenantFooter | keyvalue)?.length">
+        <div class="four wide column footerMenu mr-auto"> -->
+<!-- default links if tenant settings is not available -->
+<!-- <ul class="p-0 m-0" *ngIf="!(tenantFooter | keyvalue)?.length">
             <li class="mb-16">
               <a appTelemetryInteract [telemetryInteractEdata]="setTelemetryInteractEdata('help-center')"
                 href="{{defaultFooterConfig.helpCenterLink}}">
@@ -21,8 +21,8 @@
               </a>
             </li>
           </ul> -->
-  
-          <!-- <ul class="p-0 m-0" *ngIf="(tenantFooter | keyvalue)?.length">
+
+<!-- <ul class="p-0 m-0" *ngIf="(tenantFooter | keyvalue)?.length">
             <li class="mb-16" *ngIf="tenantFooter?.helpCenterLink">
               <a appTelemetryInteract [telemetryInteractEdata]="setTelemetryInteractEdata('help-center')"
                 href="{{tenantFooter?.helpCenterLink}}">
@@ -37,9 +37,9 @@
                 href="mailto:{{tenantFooter?.helpDeskEmail}}">{{tenantFooter?.helpDeskEmail}}</a>
             </li>
           </ul>-->
-          
-       
-        </div>
+
+
+<!-- </div>
   
         <div class="download-mobile-app">
           <div class="download-mobile-app-logo p-16">
@@ -84,8 +84,8 @@
         </div>
         <div class="ui grid stackable px-72">
           <div class="six wide column contantDetails px-0">
-            <div class="footerMenu text-left">
-              <!-- <ul class="p-0 m-0" *ngIf="!(tenantFooter | keyvalue)?.length">
+            <div class="footerMenu text-left"> -->
+<!-- <ul class="p-0 m-0" *ngIf="!(tenantFooter | keyvalue)?.length">
                 <li class="help-center">
                   <a appTelemetryInteract [telemetryInteractEdata]="setTelemetryInteractEdata('help-center')"
                     href="{{defaultFooterConfig.helpCenterLink}}">
@@ -102,7 +102,7 @@
                   </a>
                 </li> 
               </ul>-->
-              <!-- <ul class="p-0 m-0" *ngIf="(tenantFooter | keyvalue)?.length">
+<!-- <ul class="p-0 m-0" *ngIf="(tenantFooter | keyvalue)?.length">
                 <li class="mb-16 help-cente" *ngIf="tenantFooter?.helpCenterLink">
                   <a appTelemetryInteract [telemetryInteractEdata]="setTelemetryInteractEdata('help-center')"
                     href="{{tenantFooter?.helpCenterLink}}">
@@ -118,7 +118,7 @@
                     href="mailto:{{tenantFooter?.helpDeskEmail}}">{{tenantFooter?.helpDeskEmail}}</a>
                 </li>
               </ul> -->
-            </div>
+<!-- </div>
             <div>
             <label class="d-block footer-terms-info text-left font-weight-normal">
               <a *ngIf="!isDesktopApp" appTelemetryInteract [telemetryInteractEdata]="setTelemetryInteractEdata('t&c')"
@@ -149,4 +149,4 @@
   </footer>
   </div>
 
-  <extension-point *appDesktopOnly [name]="'content-manager'"></extension-point>
+  <extension-point *appDesktopOnly [name]="'content-manager'"></extension-point> -->

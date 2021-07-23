@@ -1,4 +1,4 @@
-import { ProfileService } from '@sunbird/profile';
+// import { ProfileService } from '@sunbird/profile';
 import { CourseProgressService } from './../course-progress/course-progress.service';
 import { IListReportsFilter, IReportsApiResponse, IDataSource } from './../../interfaces';
 import { ConfigService, IUserData } from '@sunbird/shared';
@@ -23,7 +23,7 @@ export class ReportService {
   constructor(private sanitizer: DomSanitizer, private usageService: UsageService, private userService: UserService,
     private configService: ConfigService, private baseReportService: BaseReportService, private permissionService: PermissionService,
     private courseProgressService: CourseProgressService, private searchService: SearchService,
-    private frameworkService: FrameworkService, private profileService: ProfileService) {
+    private frameworkService: FrameworkService) {
     try {
       this._superAdminSlug = (<HTMLInputElement>document.getElementById('superAdminSlug')).value;
     } catch (error) {
@@ -419,17 +419,17 @@ export class ReportService {
       },
       $state: {
         value: _.get(_.find(_.get(this.userService, 'userProfile.userLocations'), ['type', 'state']), 'name'),
-        masterData: () => {
-          if (!this.cachedMapping.hasOwnProperty('$state')) {
-            const requestData = { 'filters': { 'type': 'state' } };
-            this.cachedMapping['$state'] = this.profileService.getUserLocation(requestData).pipe(
-              map(apiResponse => _.map(_.get(apiResponse, 'result.response'), state => _.get(state, 'name'))),
-              shareReplay(1),
-              catchError(err => of([]))
-            );
-          }
-          return this.cachedMapping['$state'];
-        }
+        // masterData: () => {
+        //   if (!this.cachedMapping.hasOwnProperty('$state')) {
+        //     const requestData = { 'filters': { 'type': 'state' } };
+        //     this.cachedMapping['$state'] = this.profileService.getUserLocation(requestData).pipe(
+        //       map(apiResponse => _.map(_.get(apiResponse, 'result.response'), state => _.get(state, 'name'))),
+        //       shareReplay(1),
+        //       catchError(err => of([]))
+        //     );
+        //   }
+        //   return this.cachedMapping['$state'];
+        // }
       },
       $channel: {
         value: _.get(this.userService, 'userProfile.rootOrg.hashTagId'),

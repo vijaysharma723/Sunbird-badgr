@@ -1,8 +1,8 @@
 import { Component, Input, Output, OnInit, ViewChild, EventEmitter, ElementRef } from '@angular/core';
-import { ToasterService, ResourceService} from '@sunbird/shared';
+import { ToasterService, ResourceService } from '@sunbird/shared';
 import { UserService, LearnerService } from '@sunbird/core';
 import * as _ from 'lodash-es';
-import { ProfileService } from '@sunbird/profile';
+// import { ProfileService } from '@sunbird/profile';
 import { IInteractEventObject } from '@sunbird/telemetry';
 
 @Component({
@@ -13,10 +13,10 @@ import { IInteractEventObject } from '@sunbird/telemetry';
 export class CertificateNameUpdatePopupComponent implements OnInit {
   @Input() showProfileUpdatePopup;
   @Input() profileInfo;
-  @ViewChild('modal', {static: false}) modal;
+  @ViewChild('modal', { static: false }) modal;
   @Output() close = new EventEmitter();
-  @ViewChild('crtFirstName', {static: false}) fNameInputEl: ElementRef;
-  @ViewChild('crtLastName', {static: false}) lNameInputEl: ElementRef;
+  @ViewChild('crtFirstName', { static: false }) fNameInputEl: ElementRef;
+  @ViewChild('crtLastName', { static: false }) lNameInputEl: ElementRef;
 
 
   disableContinueBtn = false;
@@ -27,11 +27,11 @@ export class CertificateNameUpdatePopupComponent implements OnInit {
   public learner: LearnerService;
   courseInteractObject: IInteractEventObject;
 
-  constructor( public userService: UserService,
+  constructor(public userService: UserService,
     public resourceService: ResourceService,
     private toasterService: ToasterService,
     public learnerService: LearnerService,
-    private profileService: ProfileService) { }
+  ) { }
 
   ngOnInit() {
     this.instance = _.upperCase(this.resourceService.instance);
@@ -65,19 +65,19 @@ export class CertificateNameUpdatePopupComponent implements OnInit {
   /**
    * This method used to submit profile Update
    */
-  updateProfileName() {
-    const data = {
-      firstName: _.trim(this.profileInfo.firstName),
-      lastName: _.trim(this.profileInfo.lastName)
-    };
-    this.disableContinueBtn = true;
-    localStorage.setItem('isCertificateNameUpdated_' + this.profileInfo.id, 'true');
+  // updateProfileName() {
+  //   const data = {
+  //     firstName: _.trim(this.profileInfo.firstName),
+  //     lastName: _.trim(this.profileInfo.lastName)
+  //   };
+  //   this.disableContinueBtn = true;
+  //   localStorage.setItem('isCertificateNameUpdated_' + this.profileInfo.id, 'true');
 
-    this.profileService.updateProfile(data).subscribe(res => {
-      this.closePopup();
-    }, err => {
-      this.disableContinueBtn = false;
-      this.toasterService.error(this.resourceService.messages.fmsg.m0085);
-    });
-  }
+  //   this.profileService.updateProfile(data).subscribe(res => {
+  //     this.closePopup();
+  //   }, err => {
+  //     this.disableContinueBtn = false;
+  //     this.toasterService.error(this.resourceService.messages.fmsg.m0085);
+  //   });
+  // }
 }
